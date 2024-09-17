@@ -1,0 +1,38 @@
+[
+    {
+      "name": "Lionel Messi",
+      "age": 36,
+      "team": "Inter Miami",
+      "position": "Forward",
+      "nationality": "Argentina"
+    },
+    {
+      "name": "Cristiano Ronaldo",
+      "age": 39,
+      "team": "Al-Nassr",
+      "position": "Forward",
+      "nationality": "Portugal"
+    },
+    {
+      "name": "Kylian Mbappé",
+      "age": 25,
+      "team": "Paris Saint-Germain",
+      "position": "Forward",
+      "nationality": "France"
+    },
+    {
+      "name": "Kevin De Bruyne",
+      "age": 33,
+      "team": "Manchester City",
+      "position": "Midfielder",
+      "nationality": "Belgium"
+    },
+    {
+      "name": "Virgil van Dijk",
+      "age": 32,
+      "team": "Liverpool",
+      "position": "Defender",
+      "nationality": "Netherlands"
+    }
+  ]
+  

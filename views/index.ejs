@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./templates/head.ejs')%>
+
+<body>
+    <div class="container">
+        <h1>Registro de Jugadores</h1>
+        <form id="player-form">
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre del Jugador</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="department" class="form-label">Departamento</label>
+            <select class="form-select" id="department" required>
+              <option value="">Seleccione un Departamento</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="city" class="form-label">Municipio</label>
+            <select class="form-select" id="city" required>
+              <option value="">Seleccione un Municipio</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Agregar Jugador</button>
+        </form>
+    
+        <h2>Lista de Jugadores</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Departamento</th>
+              <th>Municipio</th>
+            </tr>
+          </thead>
+          <tbody id="players-table">
+            <% players.forEach(player => { %>
+              <tr>
+                <td><%= player.name %></td>
+                <td><%= player.department %></td>
+                <td><%= player.city %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+      <script src="/js/main.js"></script>
+</body>
+</html>
