@@ -1,8 +1,7 @@
-<!--views/index.ejs -->
+<!-- views/index.ejs -->
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./templates/head.ejs')%>
-
+  <%- include('./templates/head.ejs')%>
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">Registro de Jugadores</h1>
@@ -31,6 +30,7 @@
             <label for="department" class="form-label">Departamento de Nacimiento:</label>
             <select id="department" name="birthDepartment" class="form-select" required>
               <option value="">Seleccione un departamento</option>
+
             </select>
           </div>
         
@@ -38,6 +38,7 @@
             <label for="municipality" class="form-label">Municipio de Nacimiento:</label>
             <select id="municipality" name="birthMunicipality" class="form-select" required>
               <option value="">Seleccione un municipio</option>
+
             </select>
           </div>
         
@@ -45,30 +46,32 @@
         </form>
           
         <h2 class="mb-4">Lista de Jugadores</h2>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Edad</th>
-              <th>Equipo</th>
-              <th>Posición</th>
-              <th>Departamento de Nacimiento</th>
-              <th>Municipio de Nacimiento</th>
-            </tr>
-          </thead>
-          <tbody id="players-table">
-            <% players.forEach(player => { %>
-              <tr>
-                <td><%= player.name %></td>
-                <td><%= player.age %></td>
-                <td><%= player.team %></td>
-                <td><%= player.position %></td>
-                <td><%= player.birthDepartment %></td>
-                <td><%= player.birthMunicipality %></td>
-              </tr>
-            <% }) %>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Edad</th>
+                  <th>Equipo</th>
+                  <th>Posición</th>
+                  <th>Departamento de Nacimiento</th>
+                  <th>Municipio de Nacimiento</th>
+                </tr>
+              </thead>
+              <tbody id="players-table">
+                <% players.forEach(player => { %>
+                  <tr>
+                    <td><%= player.name %></td>
+                    <td><%= player.age %></td>
+                    <td><%= player.team %></td>
+                    <td><%= player.position %></td>
+                    <td><%= player.birthDepartment %></td>
+                    <td><%= player.birthMunicipality %></td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+        </div>
     </div>
     <script src="/script.js"></script>
 </body>
