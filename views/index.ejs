@@ -1,50 +1,77 @@
+<!--views/index.ejs -->
 <!DOCTYPE html>
 <html lang="en">
     <%- include('./templates/head.ejs')%>
 
 <body>
-    <div class="container">
-        <h1>Registro de Jugadores</h1>
-        <form id="player-form">
+    <div class="container mt-5">
+        <h1 class="mb-4">Registro de Jugadores</h1>
+        <form id="playerForm" class="mb-4">
           <div class="mb-3">
-            <label for="name" class="form-label">Nombre del Jugador</label>
-            <input type="text" class="form-control" id="name" required>
+            <label for="name" class="form-label">Nombre del Jugador:</label>
+            <input type="text" id="name" name="name" class="form-control" required />
           </div>
+        
           <div class="mb-3">
-            <label for="department" class="form-label">Departamento</label>
-            <select class="form-select" id="department" required>
-              <option value="">Seleccione un Departamento</option>
+            <label for="age" class="form-label">Edad:</label>
+            <input type="number" id="age" name="age" class="form-control" required />
+          </div>
+        
+          <div class="mb-3">
+            <label for="team" class="form-label">Equipo:</label>
+            <input type="text" id="team" name="team" class="form-control" required />
+          </div>
+        
+          <div class="mb-3">
+            <label for="position" class="form-label">Posición:</label>
+            <input type="text" id="position" name="position" class="form-control" required />
+          </div>
+        
+          <div class="mb-3">
+            <label for="department" class="form-label">Departamento de Nacimiento:</label>
+            <select id="department" name="birthDepartment" class="form-select" required>
+              <option value="">Seleccione un departamento</option>
+              <!-- Opciones se cargarán dinámicamente -->
             </select>
           </div>
+        
           <div class="mb-3">
-            <label for="city" class="form-label">Municipio</label>
-            <select class="form-select" id="city" required>
-              <option value="">Seleccione un Municipio</option>
+            <label for="municipality" class="form-label">Municipio de Nacimiento:</label>
+            <select id="municipality" name="birthMunicipality" class="form-select" required>
+              <option value="">Seleccione un municipio</option>
+              <!-- Opciones se cargarán dinámicamente -->
             </select>
           </div>
+        
           <button type="submit" class="btn btn-primary">Agregar Jugador</button>
         </form>
-    
-        <h2>Lista de Jugadores</h2>
-        <table class="table">
+          
+        <h2 class="mb-4">Lista de Jugadores</h2>
+        <table class="table table-striped">
           <thead>
             <tr>
               <th>Nombre</th>
-              <th>Departamento</th>
-              <th>Municipio</th>
+              <th>Edad</th>
+              <th>Equipo</th>
+              <th>Posición</th>
+              <th>Departamento de Nacimiento</th>
+              <th>Municipio de Nacimiento</th>
             </tr>
           </thead>
           <tbody id="players-table">
             <% players.forEach(player => { %>
               <tr>
                 <td><%= player.name %></td>
-                <td><%= player.department %></td>
-                <td><%= player.city %></td>
+                <td><%= player.age %></td>
+                <td><%= player.team %></td>
+                <td><%= player.position %></td>
+                <td><%= player.birthDepartment %></td>
+                <td><%= player.birthMunicipality %></td>
               </tr>
             <% }) %>
           </tbody>
         </table>
-      </div>
-      <script src="/js/main.js"></script>
+    </div>
+    <script src="/script.js"></script>
 </body>
 </html>

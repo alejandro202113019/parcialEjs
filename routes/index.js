@@ -1,22 +1,26 @@
-const routes = require('express').Router()
+const express = require('express');
+const routes = express.Router();
 const players = require('../data/players.json');
+const departments = require('../data/departments.json');
+const municipalities = require('../data/towns.json');
+
+// Ruta para la página principal
 routes.get('/', (req, res) => {
-  const { search } = req.query;
-
-  // Filtrar jugadores si hay un criterio de búsqueda
-  const filteredPlayers = search
-    ? players.filter(player =>
-        player.name.toLowerCase().includes(search.toLowerCase()) ||
-        player.team.toLowerCase().includes(search.toLowerCase())
-      )
-    : players;
-
-    res.render('index', {
-      title: 'Football Players', // Aquí defines el título
-      players: filteredPlayers,
-      search
-    });
+  res.render('index', { 'title':'Página Principal', players });
 });
 
-module.exports = routes  
-  
+// Ruta para obtener departamentos
+routes.get('/departments', (req, res) => {
+  res.json(departments);
+});
+
+// Ruta para obtener municipios por departamento
+routes.get('/municipalities/:departmentCode', (req, res) => {
+  const departmentCode = req.params.departmentCode;
+  const filteredMunicipalities = municipalities.filter(
+    (municipality) => municipality.department === departmentCode
+  );
+  res.json(filteredMunicipalities);
+});
+
+module.exports = routes;
